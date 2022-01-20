@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">KChartLib</string>
+
+    <string name="kchart_string1">High:</string>
+    <string name="kchart_string2">Low:</string>
+    <string name="kchart_string3">Open:</string>
+    <string name="kchart_string4">Colse:</string>
+    <string name="kchart_string5">Change:</string>
+    <string name="kchart_string6">G/L:</string>
+    <string name="kchart_string7">Vol:</string>
+
+</resources>

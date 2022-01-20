@@ -1,0 +1,160 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.app.hnt"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64','arm64-v8a'
+        }
+    }
+
+    //签名
+    signingConfigs {
+        release {
+            keyAlias 'hnt'
+            keyPassword '123456'
+            storeFile file('/Users/YunZhong/AndroidStudioProject/HNT-2022.1.15/hnt.kaystore')
+            storePassword '123456'
+        }
+//        keytool -list -v -keystore /Users/YunZhong/Desktop/社交/myim.kaystore -alias myim -storepass 123456 -keypass 123456
+    }
+    buildTypes {
+        release {
+            //是否混淆
+            minifyEnabled false
+            //是否移除无用资源
+            zipAlignEnabled true
+            //混淆的配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            /*//是否混淆
+            minifyEnabled true
+            //是否移除无用资源
+            zipAlignEnabled true
+            //混淆的配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release*/
+            //是否混淆
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+    //二维码框架需要
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])//兼容导入jar、aar
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //屏幕适配
+    implementation 'me.jessyan:autosize:1.2.1'
+
+    //recyclerView封装
+    implementation 'com.zhy:base-rvadapter:3.0.3'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+
+    //网络请求、解析
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
+
+    //加载网络图片
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    //圆形图片
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //圆角图片
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    //图片点击放大
+    implementation 'com.bm.photoview:library:1.4.1'
+    //图片选择器
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.0'
+
+    //banner
+    implementation 'io.github.youth5201314:banner:2.2.2'
+
+    //沉浸式
+    // 基础依赖包，必须要依赖
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // fragment快速实现（可选）
+//    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0-beta03'
+
+    //底部选项栏
+//    implementation 'com.hjm:BottomTabBar:1.2.2'
+    implementation 'com.github.Vincent7Wong:EasyNavigation:2.0.5'
+
+    //toast提示框
+    implementation 'com.github.getActivity:ToastUtils:10.2'
+
+    //侧滑返回
+    implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
+
+    //下拉刷新、上拉加载更多
+    //SpringView核心库 (只包含DefaultHeader/Footer)
+    implementation 'com.liaoinstan.springview:library:1.7.0'
+
+    //以下是各个风格的Header/Footer，选择自己喜欢的引入
+//    implementation 'com.liaoinstan.springview:AcfunHeader:1.7.0'         //AcFun style （header and footer）
+    implementation 'com.liaoinstan.springview:AliHeader:1.7.0'
+    //Alitrip style （header and footer）
+//    implementation 'com.liaoinstan.springview:MeituanHeader:1.7.0'       //Meituan style （header and footer）
+//    implementation 'com.liaoinstan.springview:RotationHeader:1.7.0'      //Mechanical gear style （header and footer）
+//    implementation 'com.liaoinstan.springview:WeixinHeader:1.7.0'        //WeChat Mini Program header（only header）
+//    implementation 'com.liaoinstan.springview:DuHeader:1.7.0'		//Du app header（only header）
+
+    //异常上报-腾讯bugly
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+
+    //apk更新
+    implementation 'com.github.maning0303:MNUpdateAPK:V2.0.3'
+
+    //自定义弹框
+    implementation 'com.github.AnJiaoDe:BaseDialog:V1.1.8'
+
+    //二维码扫码封装 基于zBar
+    implementation 'com.github.MZCretin:ScanCode:1.0.0'//版本2.0.1 无返回
+    //动态申请权限
+    implementation 'com.github.MZCretin:FanPermission:1.0.0'
+
+    //工具类 https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/README-CN.md
+    implementation 'com.blankj:utilcodex:1.31.0'
+
+    //折线图
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+//    implementation project(':MPChartLib')
+    implementation project(':kchartlib')
+
+    //长连接-websocket
+    implementation "org.java-websocket:Java-WebSocket:1.4.0"
+}

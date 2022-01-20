@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates
+                overridePins="true"
+                src="system" />
+            <certificates
+                overridePins="true"
+                src="user" />
+        </trust-anchors>
+    </base-config>
+    <!--实际部署后只放开自己的服务端地址-->
+    <!--只将本服务XXX.XXX.XXX.XXX器放开-->
+<!--    <domain-config cleartextTrafficPermitted="true">-->
+<!--        <domain includeSubdomains="true">199.96.62.17</domain>-->
+<!--    </domain-config>-->
+</network-security-config>

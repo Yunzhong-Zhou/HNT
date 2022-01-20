@@ -1,0 +1,16 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+        //        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }//优先从阿里云下载，提高编译速度
+        maven { url "https://jitpack.io" }
+    }
+}
+rootProject.name = "HNT"
+include ':app'
+include ':kchartlib'

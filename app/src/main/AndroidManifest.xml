@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.app.hnt">
+    <!-- 网络权限问题 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 8.0安装需要的权限 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 读写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 读取手机信息 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 9.0权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" /> <!-- Android Q后台定位权限 -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /><!--悬浮窗-->
+
+
+    <uses-permission
+        android:name="android.permission.CHANGE_CONFIGURATION"
+        tools:ignore="ProtectedPermissions" />
+    <!--<uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />-->
+    <!-- 硬件加速对X5视频播放非常重要，建议开启 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 录音权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--假如我们要保存录音,还需要以下权限-->
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <!--<uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />-->
+
+    <!--android 11 适配-->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <!-- Camera features - recommended -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <!-- 振动 -->
+    <!--    <uses-permission android:name="android.permission.VIBRATE" />-->
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:configChanges="locale"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:maxAspectRatio="2.4"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HNT"
+        android:usesCleartextTraffic="true"
+        android:windowIsTranslucent="false">
+
+        <activity
+            android:name=".activity.HelloActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"> <!-- //全屏 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.GuideActivity"
+            android:label="引导页"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="登录" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:label="主页">
+            <!-- 点击通知默认打开 -->
+            <intent-filter>
+                <action android:name="${applicationId}.default.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.WebContentActivity"
+            android:label="网页" />
+
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:label="登录密码" />
+        <activity
+            android:name=".activity.SetTransactionPasswordActivity"
+            android:label="设置交易密码" />
+        <activity
+            android:name=".activity.SetAddressActivity"
+            android:label="设置币地址" />
+        <activity
+            android:name=".activity.TakeCashActivity"
+            android:label="提币" />
+        <activity
+            android:name=".activity.MyTakeCashActivity"
+            android:label="提币记录" />
+        <activity
+            android:name=".activity.ShouYiActivity"
+            android:label="收益明细" />
+        <!--全面屏适配-->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+        <!--适配华为（huawei）刘海屏-->
+        <meta-data
+            android:name="android.notch_support"
+            android:value="true" />
+        <!--适配小米（xiaomi）刘海屏-->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape" />
+        <!--7.0限制-私有目录被限制访问-->
+        <!--exported:要求必须为false，为true则会报安全异常。
+        grantUriPermissions:true，表示授予 URI 临时访问权限。-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider" />
+        </provider>
+        <!--9.0-->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+    </application>
+    <!--android 11 适配 调起其他app需要-->
+    <queries>
+        <!-- com.blankj.utilcode SDK检测虚拟机-->
+        <intent>
+            <action android:name="android.intent.action.DIAL" />
+        </intent>
+
+        <!-- 支付宝支付SDK-->
+        <package android:name="com.eg.android.AlipayGphone" />
+        <package android:name="hk.alipay.wallet" />
+
+        <package android:name="com.tencent.mm" /><!--微信-->
+        <package android:name="com.tencent.mobileqq" /><!--QQ-->
+        <package android:name="com.qzone" /><!--qq空间-->
+        <package android:name="cooperation.qzone.QzonePublishMoodProxyActivity" /><!--qq空间-->
+        <package android:name="com.sina.weibo" /><!--微博-->
+    </queries>
+</manifest>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="right|bottom"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="80dp"
+        android:layout_height="28dp"
+        android:background="@drawable/yuanjiaobiankuang_13_baise"
+        android:text="3s | 跳过 "
+        android:gravity="center"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:textSize="12sp" />
+</LinearLayout>

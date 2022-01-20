@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">KChartLib</string>
+
+    <string name="kchart_string1">高:</string>
+    <string name="kchart_string2">低:</string>
+    <string name="kchart_string3">开:</string>
+    <string name="kchart_string4">收:</string>
+    <string name="kchart_string5">涨跌额:</string>
+    <string name="kchart_string6">涨跌幅:</string>
+    <string name="kchart_string7">成交量:</string>
+
+</resources>

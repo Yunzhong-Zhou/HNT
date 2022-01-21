@@ -5,11 +5,11 @@ package com.app.hnt.net;
  */
 public class URLs{
     //测试地址
-    public static String IMGHOST = "http://hnt.fbixfbi.com";//图片地址
-    public static String HOST = "http://hnt.fbixfbi.com";//接口地址
+//    public static String IMGHOST = "http://hnt.fbixfbi.com";//图片地址
+//    public static String HOST = "http://hnt.fbixfbi.com";//接口地址
     //正式地址
-//    public static String IMGHOST = "http://img.leqi.work/";//图片地址
-//    public static String HOST = "http://app.leqi.works";//接口地址
+    public static String IMGHOST = "https://app.hnthnt.org";//图片地址
+    public static String HOST = "https://app.hnthnt.org";//接口地址
 
     public static final String PROJECT_NAME = "";
     public static final String API = "";

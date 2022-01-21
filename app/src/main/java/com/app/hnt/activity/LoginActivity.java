@@ -27,7 +27,6 @@ import com.app.hnt.okhttp.CallBackUtil;
 import com.app.hnt.okhttp.OkhttpUtil;
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.AppUtils;
-import com.blankj.utilcode.util.RegexUtils;
 import com.cy.dialog.BaseDialog;
 import com.maning.updatelibrary.InstallUtils;
 
@@ -210,13 +209,13 @@ public class LoginActivity extends BaseActivity {
     private boolean match() {
         phonenum = editText1.getText().toString().trim();
         if (TextUtils.isEmpty(phonenum)) {
-            myToast("请输入手机号");
+            myToast("请输入账号");
             return false;
         }
-        if (!RegexUtils.isMobileExact(phonenum)) {
+        /*if (!RegexUtils.isMobileExact(phonenum)) {
             myToast("请输入正确手机号");
             return false;
-        }
+        }*/
         password = editText2.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
             myToast("请输入密码");

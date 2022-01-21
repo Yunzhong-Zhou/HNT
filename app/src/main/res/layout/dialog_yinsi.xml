@@ -81,7 +81,7 @@
             android:gravity="center"
             android:padding="15dp"
             android:text="不同意并退出App"
-            android:textColor="@color/purple"
+            android:textColor="@color/blue"
             android:textSize="13sp" />
     </LinearLayout>
 

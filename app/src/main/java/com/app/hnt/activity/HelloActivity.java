@@ -1,28 +1,13 @@
 package com.app.hnt.activity;
 
 import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.TextPaint;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.app.hnt.R;
 import com.app.hnt.utils.LocalUserInfo;
 import com.blankj.utilcode.util.ActivityUtils;
-import com.cy.dialog.BaseDialog;
-
-import androidx.annotation.NonNull;
 
 
 /**
@@ -52,7 +37,7 @@ public class HelloActivity extends Activity {
         Boolean user_first = setting.getBoolean("FIRST", true);
 
         // 如果是第一次启动，则先进入功能引导页
-        if (user_first) {
+        /*if (user_first) {
             //弹出隐私
             BaseDialog dialog= new BaseDialog(this);
             dialog.contentView(R.layout.dialog_yinsi)
@@ -137,7 +122,6 @@ public class HelloActivity extends Activity {
                 }
             });
 
-
         } else {
             time = new TimeCount(3000, 1000);//构造CountDownTimer对象
             // 如果不是第一次启动app，则正常显示启动屏
@@ -149,13 +133,14 @@ public class HelloActivity extends Activity {
                     time.cancel();
                 enterHomeActivity();
             });
-            /*new Handler().postDelayed(new Runnable() {
+            *//*new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     enterHomeActivity();
                 }
-            }, 2000);*/
-        }
+            }, 2000);*//*
+        }*/
+        enterHomeActivity();
     }
 
     @Override
@@ -166,7 +151,7 @@ public class HelloActivity extends Activity {
     }
     private void enterHomeActivity() {
 //        LocalUserInfo.getInstance(HelloActivity.this).setUserId("");
-        if (LocalUserInfo.getInstance(HelloActivity.this).getPhonenumber().equals("")) {
+        if (LocalUserInfo.getInstance(HelloActivity.this).getToken().equals("")) {
             ActivityUtils.startActivity(LoginActivity.class);
         } else {
             ActivityUtils.startActivity(MainActivity.class);

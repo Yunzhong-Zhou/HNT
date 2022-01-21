@@ -61,10 +61,10 @@ public class Fragment2 extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (MainActivity.item == 1) {
+        /*if (MainActivity.item == 1) {
             page = 1;
             requestServer();
-        }
+        }*/
     }
 
     /*@Override
@@ -77,20 +77,20 @@ public class Fragment2 extends BaseFragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        /*if (MainActivity.isOver) {
+        if (MainActivity.isOver) {
             if (getUserVisibleHint()) {//此处不能用isVisibleToUser进行判断，因为setUserVisibleHint会执行多次，而getUserVisibleHint才是判断真正是否可见的
                 if (MainActivity.item == 1) {
-//                    showLoadingPage();
-//                    requestServer();
+                    showLoadingPage();
+                    requestServer();
                 }
             }
-        }*/
+        }
     }
 
     @Override
     protected void initView(View view) {
         findViewByID_My(R.id.headView).setPadding(0, BarUtils.getStatusBarHeight(), 0, 0);
-        setSpringViewMore(false);//需要加载更多
+        setSpringViewMore(true);//需要加载更多
         springView.setListener(new SpringView.OnFreshListener() {
             @Override
             public void onRefresh() {

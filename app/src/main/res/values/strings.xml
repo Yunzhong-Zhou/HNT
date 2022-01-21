@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HNT</string>
+    <string name="app_name">Helium</string>
 
     <string name="paizhao">拍照</string>
     <string name="xiangce">相册</string>
@@ -274,6 +274,6 @@
     <string name="settransactionpassword_h10">两次输入的密码不一致</string>
     <string name="settransactionpassword_h11">交易密码修改成功</string>
     <string name="settransactionpassword_h12">确定</string>
-    <string name="settransactionpassword_h13">请输入旧交易密码</string>
+    <string name="settransactionpassword_h13">请输入登录密码</string>
 
 </resources>

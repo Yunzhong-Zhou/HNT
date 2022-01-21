@@ -140,6 +140,19 @@
                     android:text="修改密码"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/textView9"
+                    android:onClick="onClick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="40dp"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:drawableLeft="@mipmap/ic_fragment3_4"
+                    android:drawablePadding="15dp"
+                    android:text="交易密码"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/textView8"

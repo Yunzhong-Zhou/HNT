@@ -26,7 +26,7 @@ android {
         release {
             keyAlias 'hnt'
             keyPassword '123456'
-            storeFile file('/Users/YunZhong/AndroidStudioProject/HNT-2022.1.15/hnt.kaystore')
+            storeFile file('/Users/YunZhong/AndroidStudioProject/HNT-2022.1.15/HNT.keystore')
             storePassword '123456'
         }
 //        keytool -list -v -keystore /Users/YunZhong/Desktop/社交/myim.kaystore -alias myim -storepass 123456 -keypass 123456

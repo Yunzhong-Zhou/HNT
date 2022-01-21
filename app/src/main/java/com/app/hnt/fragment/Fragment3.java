@@ -40,7 +40,7 @@ import okhttp3.Response;
  */
 public class Fragment3 extends BaseFragment {
     Fragment3Model model;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,textView9;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -118,6 +118,8 @@ public class Fragment3 extends BaseFragment {
         textView6 = findViewByID_My(R.id.textView6);
         textView7 = findViewByID_My(R.id.textView7);
         textView8 = findViewByID_My(R.id.textView8);
+        textView9 = findViewByID_My(R.id.textView9);
+
 
         textView3.setOnClickListener(this);
         textView4.setOnClickListener(this);
@@ -125,6 +127,7 @@ public class Fragment3 extends BaseFragment {
         textView6.setOnClickListener(this);
         textView7.setOnClickListener(this);
         textView8.setOnClickListener(this);
+        textView9.setOnClickListener(this);
 
         textView1.setText(localUserInfo.getNickname());
     }
@@ -220,6 +223,10 @@ public class Fragment3 extends BaseFragment {
             case R.id.textView7:
                 //修改密码
                 ActivityUtils.startActivity(ChangePasswordActivity.class);
+                break;
+            case R.id.textView9:
+                //交易密码
+                ActivityUtils.startActivity(SetTransactionPasswordActivity.class);
                 break;
             case R.id.textView8:
                 ShowDialog.show(getActivity(), dialog, "退出",

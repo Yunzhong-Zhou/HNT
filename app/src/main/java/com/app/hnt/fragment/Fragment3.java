@@ -40,7 +40,7 @@ import okhttp3.Response;
  */
 public class Fragment3 extends BaseFragment {
     Fragment3Model model;
-    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8,textView9;
+    TextView textView1, textView2, textView3, textView4, textView5, textView6, textView7, textView8, textView9;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -186,8 +186,8 @@ public class Fragment3 extends BaseFragment {
                             });
                     return;
                 }
-                bundle.putSerializable("Fragment3Model",model);
-                ActivityUtils.startActivity(bundle,TakeCashActivity.class);
+                bundle.putSerializable("Fragment3Model", model);
+                ActivityUtils.startActivity(bundle, TakeCashActivity.class);
                 break;
             case R.id.textView4:
                 //提币记录
@@ -217,8 +217,8 @@ public class Fragment3 extends BaseFragment {
                             });
                     return;
                 }
-                bundle.putSerializable("Fragment3Model",model);
-                ActivityUtils.startActivity(bundle,SetAddressActivity.class);
+                bundle.putSerializable("Fragment3Model", model);
+                ActivityUtils.startActivity(bundle, SetAddressActivity.class);
                 break;
             case R.id.textView7:
                 //修改密码
@@ -245,6 +245,7 @@ public class Fragment3 extends BaseFragment {
                                 FileUtils.deleteFilesInDir(FileUtil.getImageDownloadDir(getActivity()));
                                 ActivityUtils.startActivity(LoginActivity.class);
                                 ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
+                                getActivity().finish();
                             }
                         }, new View.OnClickListener() {
                             @Override

@@ -6,8 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.ImageView;
 
-import com.app.hnt.MyApplication;
-import com.app.hnt.utils.LocalUserInfo;
 import com.app.hnt.utils.MyLogger;
 import com.google.gson.Gson;
 import com.google.gson.internal.$Gson$Types;
@@ -137,17 +135,12 @@ public abstract class CallBackUtil<T> {
                                 }
                             });
                             break;*/
-                        case 700:
-                        case 701:
-                        case 702:
-//                    case 500:
+                        /*case 5000:
                             //会员token无效 - 跳转登录
                             LocalUserInfo.getInstance(MyApplication.getContext()).deleteUserInfo();
-
-//                            ActivityUtils.startActivity(LoginActivity.class);
-//                            ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
-                            break;
-                        case 400:
+                            ActivityUtils.startActivity(LoginActivity.class);
+                            ActivityUtils.finishAllActivitiesExceptNewest();//结束除最新之外的所有 Activity
+                            break;*/
                             //TODO 没有数据、提交失败 （有冲突，走失败逻辑提示message信息，请求列表数据时，不要提示）
                         default:
                             //数据请求失败
@@ -163,8 +156,7 @@ public abstract class CallBackUtil<T> {
                             });
                             break;
                     }
-                }
-                else {
+                } else {
                     mMainHandler.post(new Runnable() {
                         @Override
                         public void run() {
